@@ -14,6 +14,7 @@ app.post('/api/upload', (req, res) => {
   }
 
   // The file will be available in req.files.<input_name>
+  console.log(req.files)
   const file = req.files.file;
 
   // Move the file to the desired directory
