@@ -15,10 +15,10 @@ app.post('/api/upload', (req, res) => {
 
   // The file will be available in req.files.<input_name>
   console.log(req.files)
-  const file = req.files.file;
+  const file = req.files.undefined;
 
   // Move the file to the desired directory
-  const targetDirectory = '/var/www/uploads';
+  const targetDirectory = '/home/osboxes/documents';
   const filePath = path.join(targetDirectory, file.name);
   file.mv(filePath, (err) => {
     if (err) {
