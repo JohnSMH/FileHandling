@@ -18,8 +18,8 @@ app.post('/api/upload', (req, res) => {
   const file = req.files.undefined;
 
   // Move the file to the desired directory
-  const targetDirectory = '/home/osboxes/documents';
-  const filePath = path.join(targetDirectory);
+  const targetDirectory = '/home/osboxes/Documents/';
+  const filePath = path.join(targetDirectory+file.name);
   file.mv(filePath, (err) => {
     if (err) {
       console.error(err);
