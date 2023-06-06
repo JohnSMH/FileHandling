@@ -7,7 +7,9 @@ app.use(fileUpload());
 
 // Upload endpoint
 app.post('/api/upload', (req, res) => {
+  console.log("upload")
   if (!req.files || Object.keys(req.files).length === 0) {
+    console.log('No files were uploaded.')
     return res.status(400).json({ message: 'No files were uploaded.' });
   }
 
@@ -22,7 +24,7 @@ app.post('/api/upload', (req, res) => {
       console.error(err);
       return res.status(500).json({ message: 'Error occurred while uploading the file.' });
     }
-
+    console.log('File uploaded successfully.')
     return res.status(200).json({ message: 'File uploaded successfully.' });
   });
 });
