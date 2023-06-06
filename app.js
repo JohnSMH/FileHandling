@@ -23,7 +23,7 @@ app.post('/api/upload', (req, res) => {
       return res.status(500).json({ message: 'Error occurred while uploading the file.' });
     }
 
-    return res.json({ message: 'File uploaded successfully.' });
+    return res.status(200).json({ message: 'File uploaded successfully.' });
   });
 });
 
@@ -35,13 +35,19 @@ app.get('/api/files/:filename', (req, res) => {
     if (err) {
       console.error(err);
       return res.status(404).json({ message: 'File not found.' });
-    }
+    } 
+    return res.status(200).json({ message: 'File get successful' });
   });
 });
 
+app.get('/api/hello', (req, res) => {
+  console.log("hello")
+  return res.status(200).json({ message: 'Hello' });
+})
+
 // Start the server
-app.listen(8001, () => {
-  console.log('Server is running on port 8001');
+app.listen(8002, () => {
+  console.log('Server is running on port 8002');
 });
 
 module.exports = app;
